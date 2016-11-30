@@ -14,58 +14,38 @@ if [ -z "$1" ]
 then
     echo ""
     echo "Usage:"
-    echo "./invoker COMMAND SOURCE FOLDER"
-    echo ""
-    echo "Commands:"
-    echo "invoke - pulls down Bandcamp download file, unzips and removes downloaded zip"
+    echo "./invoker SOURCE FOLDER"
     echo ""
     echo "Source:"
     echo "Supply URL to download (copy and paste from Bandcamp download link)"
+    echo ""
     echo "Folder:"
     echo "The folder name to store everything locally"
     echo ""
     exit 1
+else
+    SOURCE_URL="$1"
+    echo "Source file set!"
 fi
 
 #check param 2
 if [ -z "$2" ]
 then
-    echo "Source download file location not specified, leaving..."
-    exit 1
-else
-    SOURCE_URL="$2"
-    echo "Source file set!"
-fi
-
-#check param 3
-if [ -z "$3" ]
-then
     echo "Download folder name ommitted, using temp as folder name"
 else
-    FOLDER_NAME="$3"
-    echo "Download folder set to: '$3'"
+    FOLDER_NAME="$2"
+    echo "Download folder set to: '$2'"
 fi
 
 #invoke
-case "$1" in invoke)
-    echo "----"
-    echo "Downloading from bandcamp..."
-    wget $SOURCE_URL -O 'temp.zip'
-    echo "----"
-    echo "Download complete, unzipping..."
-    unzip 'temp.zip' -d "$FOLDER_NAME"
-    echo "Unzip complete, removing temp zip file..."
-    rm -f 'temp.zip'
-    echo "----"
-    echo "Glorious invocation!"
-    ;;
-
-#unknown command
-*)
-echo "Words fail me..."
-;;
-
-esac
-
+echo "Downloading from bandcamp..."
+echo "----"
+wget $SOURCE_URL -O 'temp.zip'
+echo "----"
+echo "Download complete, unzipping..."
+unzip 'temp.zip' -d "$FOLDER_NAME"
+echo "----"
+echo "Unzip complete, removing temp zip file..."
+rm -f 'temp.zip'
 echo "--------------------"
-echo "The learned one strikes"
+echo "Glorious invocation!"
