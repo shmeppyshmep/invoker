@@ -1,7 +1,7 @@
 # Invoker
 A command line Bandcamp download tool to simplify the process of downloading owned releases to your server.
 
-This is very basic for now with only one command 'invoke'. It is setup in simple bash and uses `wget` & `unzip`.
+This is very basic for now with only one command. It is setup in simple bash and uses `wget` & `unzip`.
 
 ## Installation
 
@@ -19,7 +19,7 @@ This will trigger `wget` to download the file to a temporary zip, it will then b
 
 Example below:
 
-`./invoker 'http://p4.bcbits.com/download/album/album_hash/mp3-v0/xxxxx?id=AAAAA&sig=BBBBB&sitem_id=XXXXXX&token=YYYY' 'Shmeppy - Funky as I wanna be (2016) [FLAC]'`
+`./invoker 'http://p4.bcbits.com/download/xxxxxx' 'Shmeppy - Funky as I wanna be (2016) [FLAC]'`
 
 ## Notes
 It's a good idea to wrap the pasted download source URL into single or double quotation marks, same with the source destination folder name.
